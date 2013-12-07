@@ -9,41 +9,40 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical" >
-
     </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/arriba"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_launcher" />
+    <ImageButton
+        android:id="@+id/arriba"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/up" />
 
-        <ImageButton
-            android:id="@+id/derecha"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="26dp"
-            android:layout_toRightOf="@+id/arriba"
-            android:src="@drawable/ic_launcher" />
+    <ImageButton
+        android:id="@+id/derecha"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="26dp"
+        android:layout_toRightOf="@+id/arriba"
+        android:src="@drawable/left" />
 
-        <ImageButton
-            android:id="@+id/abajo"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_launcher" />
+    <ImageButton
+        android:id="@+id/abajo"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/down" />
 
-        <ImageButton
-            android:id="@+id/izquierda"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="23dp"
-            android:layout_toLeftOf="@+id/abajo"
-            android:src="@drawable/ic_launcher" />
+    <ImageButton
+        android:id="@+id/izquierda"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="23dp"
+        android:layout_toLeftOf="@+id/abajo"
+        android:src="@drawable/right" />
 
 </RelativeLayout>

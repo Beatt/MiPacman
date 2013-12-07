@@ -15,13 +15,20 @@ import animatedSprite.AnimatedSprite;
 public class MainActivity extends Activity implements OnTouchListener {
 
 	private JuegoPacman pacman;
+	
 	private Thread hilo;
+	
 	private LinearLayout l;
-	private ImageButton botonArriba, botonAbajo, botonIzquierda, botonDerecha;
+	
+	private ImageButton botonArriba, 
+						botonAbajo, 
+						botonIzquierda, 
+						botonDerecha;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -29,10 +36,12 @@ public class MainActivity extends Activity implements OnTouchListener {
 		setContentView(R.layout.activity_main);
 		cargarIds();
 		cargarEventoOnTouchListener();
-		pacman = new JuegoPacman(this);
+	
+		pacman = new JuegoPacman(this, this.getIntent());
 		l.addView(pacman);
 		hilo = new Thread(pacman);
 		hilo.start();
+
 	}
 
 	@Override

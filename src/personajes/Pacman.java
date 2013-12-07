@@ -14,8 +14,10 @@ public class Pacman {
 	private Bitmap pacman;
 	private int cX, cY; // Cordenadas de la imagen
 	private AnimatedSprite animatedSprite;
-
+	private int vidas = 3;
+	
 	public Pacman(Bitmap pacman) {
+		
 		this.pacman = pacman;
 		
 		cX = Utiles.getImagenancho()*8;
@@ -84,5 +86,13 @@ public class Pacman {
 	public void setImagenEnemigo(Bitmap pacman) {
 		this.pacman = pacman;
 	}// Fin setImagenEnemigo
+
+	public int getVidas() {
+		return vidas;
+	}
+
+	public void setVidas(int vidas) {
+		this.vidas = vidas;
+	}
 
 }// Fin class Enemigos

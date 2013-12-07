@@ -11,18 +11,18 @@ import personajes.Pacman;
 import utiles.Utiles;
 import escenario.Escenario;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.View;
 import animatedSprite.AnimatedSprite;
 
 public class JuegoPacman extends View implements Runnable {
 
 	// Atributos
-	private final static int ENEMIGOS = 4;
+	private int numeroEnemigos = 4;
 	
 	private Escenario escenario;
 	
@@ -49,15 +49,11 @@ public class JuegoPacman extends View implements Runnable {
 	
 	public static boolean comenzarJuego = false;
 	
-	private long tiempo;
-	
-	public JuegoPacman(Context context) {
+	public JuegoPacman(Context context, Intent intent) {
 		super(context);
 	
 		this.setBackgroundColor(Color.GREEN);
 		this.context = context;
-		
-		
 		
 		// Cargar imagenes
 		fantasma = BitmapFactory.decodeResource(getResources(),
@@ -88,7 +84,7 @@ public class JuegoPacman extends View implements Runnable {
 	 */
 	private void crearEnemigos() {
 		
-		for (int i = 0; i < ENEMIGOS; i++) 
+		for (int i = 0; i < numeroEnemigos; i++) 
 		{
 			
 			Enemigo enemigo = new Enemigo(fantasma);
@@ -102,15 +98,17 @@ public class JuegoPacman extends View implements Runnable {
 	 */
 	private void inicializarMusica() {
 		
-		int[] musicaAmbienteFantasma = {R.raw.ambient_1, 
-								R.raw.ambient_2,
-								R.raw.ambient_3,
-								R.raw.ambient_4,
-								R.raw.ambient_eyes};
+		int[] musicaAmbienteFantasma = {    
+											R.raw.ambient_1, 
+											R.raw.ambient_2,
+											R.raw.ambient_3,
+											R.raw.ambient_4,
+											R.raw.ambient_eyes
+										};
 		
-		int[] musicaAmbienteComer = {
-										R.raw.eating_dot_1,
-										R.raw.eating_dot_2
+		int[] musicaAmbienteComer = { 
+									  R.raw.eating_dot_1,
+									  R.raw.eating_dot_2
 									};
 		
 		intro = new Musica(context.getApplicationContext(), R.raw.start_music);
@@ -128,7 +126,7 @@ public class JuegoPacman extends View implements Runnable {
 	
 		escenario.dibujarMapa(canvas, pacman, ambienteComer);
 		
-		dibujarControles();
+		moverPacman();
 		
 		pacman.dibujarPacman(canvas);
 		
@@ -138,9 +136,7 @@ public class JuegoPacman extends View implements Runnable {
 		}
 		
 		colisionEntrePersonajes();
-		
-		
-		
+
 		postInvalidate();
 
 	}// Fin onDraw
@@ -206,7 +202,7 @@ public class JuegoPacman extends View implements Runnable {
 	/*
 	 * Objetivo: Permite desplazar a pacman
 	 */
-	private void dibujarControles() {
+	private void moverPacman() {
 		
 		int anchoImagen = Utiles.getImagenancho();
 		int altoImagen = Utiles.getImagenalto();
